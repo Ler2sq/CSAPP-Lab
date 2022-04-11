@@ -165,7 +165,10 @@ int tmin(void) {
 int isTmax(int x) {
   //if x= 0x7fffffff then return 1
   //otherwise return 0
-  return !((~x)^0x80000000);
+  // ~x= 0x80000000
+  int i =x+1;
+  // i is use to exclude 0xffffffff case
+  return (!((~x)^(x+1)) & !!(i));
 }
 /* 
  * allOddBits - return 1 if all odd-numbered bits in word set to 1
@@ -176,7 +179,10 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int allOddBits(int x) {
-  return !((x&0xaaaaaaaa)^0xaaaaaaaa);
+  int mask;
+  // if can't construct 0xaaaaaaaa ,then take an iterative approach
+  mask = 0xaa+(0xaa<<8)+(0xaa<<16)+(0xaa<<24);
+  return !((x&mask)^mask);
 }
 /* 
  * negate - return -x 
@@ -202,16 +208,17 @@ int isAsciiDigit(int x) {
   // 0x30=0b110000
   // 0x39=0b111001
   //condition 1:
-  int a=x>>6;
-  int cond1=!!(a);
+  int cond1,cond2,cond3,a,b,c;
+  a=x>>6;
+  cond1=a;
 
   //condition 2:
-  int b=x>>4;
-  int cond2=!(b^0b11);
+  b=x>>4;
+  cond2=!(b^0x3);
 
   //condition 3:
-  int c=x&0xf;
-  int cond3=!!((c+(~0xa+1))>>3);
+  c=x&0xf;
+  cond3=!!((c+(~0xa+1))>>3);
   return (!cond1)&(cond2)&(cond3);
 }
 /* 
