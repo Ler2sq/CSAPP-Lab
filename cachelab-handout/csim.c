@@ -3,7 +3,8 @@
 #include <getopt.h>
 #include <malloc.h>
 #include <stdbool.h>
-#include<stdlib.h>
+#include <stdlib.h>
+#include <assert.h>
 typedef int i32;
 typedef unsigned int u32;
 typedef long long i64;
@@ -15,6 +16,9 @@ typedef unsigned long long u64;
 						exit(1)
 #define Ver(str) printf("\033[35m"\
 						str  	  \
+						"\n\033[0m")
+#define DBG(str) printf("\033[31m" \
+						str 	   \
 						"\n\033[0m")
 #define __TODO__ void
 void TODO(char *s)
@@ -34,7 +38,7 @@ typedef struct{
 }Cache;
 Cache **cache_listp;
 enum {HIT,MISS,EVICT};
-char *tf;// trace file
+char *tf = NULL;// trace file
 void parseArgs(i32 argc, char **argv);
 i32 accessCache(u64 addr);
 /*
@@ -56,11 +60,13 @@ void Usage(char *arg){
 		 "-s <s>: Number of set index bits (S = 2^s is the number of sets)\n"
 		 "-E <E>: Associativity (number of lines per set)\n"
 		 "-b <b>: Number of block bits (B = 2^b is the block size)\n"
-		 "-t <tracefile>: Name of the valgrind trace to replay\n");
+		 "-t <tracefile>: Name of the valgrind trace to replay");
+	puts("Example: User> ./csim -s 1 -E 1 -b 1 -t traces/yi.trace");
 }
 void initCache();
 void freeCache();
-void verbose(){}
+void verbose(){};
+void exec();
 void t(){}
 /*
  * S represent number of set (2^s)
@@ -77,7 +83,25 @@ i32 main(i32 argc, char *argv[])
 	freeCache();
     return 0;
 }
-__TODO__ exec(){
+void printVer(i32 sta,char op ,u64 addr ,i32 len){
+	if(IsVer){
+		switch(sta)
+		{
+			case HIT:
+				printf("\033[35m%c %llx,%d hit\n\033[0m",op,addr,len);
+				break;
+			case MISS:
+				printf("\033[35m%c %llx,%d miss\n\033[0m",op,addr,len);
+				break;
+			case EVICT:
+				printf("\033[35m%c %llx,%d miss and evict\n\033[0m",op,addr,len);
+				break;
+			default:
+				Err("Shouldn't reach here");
+		}
+	}
+}
+void exec(){
 	char buf[MAXLINE];
 	FILE *trace_fp = fopen(tf,"r");
 	if(!trace_fp){
@@ -88,7 +112,7 @@ __TODO__ exec(){
 		u32 len;
 		i32 idx = 0;
 		char op;
-		char tmpbuf[MAXLINE];
+		// char tmpbuf[MAXLINE];
 		while(buf[idx] == ' ') idx++;
 		if( buf[idx] == 'L' || buf[idx] == 'S' || buf[idx] == 'M')
 		{
@@ -97,10 +121,18 @@ __TODO__ exec(){
 			{
 				case 'L':
 					tmp_i32 = accessCache(addr);
-					if(IsVer){
-						printf("\033[35m%c %llx,%d hit\n\033[0m",op,addr,len);
-					}
-					break;S
+					printVer(tmp_i32,op,addr,len);
+					break;
+				case 'M':
+					// Don't need break, M = S + L, i.e hit++
+					tmp_i32 = accessCache(addr);
+					printVer(tmp_i32,op,addr,len);
+				case 'S':
+					tmp_i32 = accessCache(addr);
+					printVer(tmp_i32,op,addr,len);
+					break;
+				default:
+					Err("Shouldn't reach here");
 			}
 		}
 	}
@@ -127,10 +159,9 @@ i32 accessCache(u64 addr){
 				// hit
 				hit_cnt++;
 				cache_listp[set_idx][i].lru = 1;
-				if(IsVer)
-				{
-					TODO("format");// TODO:
-					Ver("hit");
+				// modify other cache's lru and return
+				for(int j = i + 1; j < E ;j ++){
+					cache_listp[set_idx][j].lru++;
 				}
 				return HIT;
 			}
@@ -153,35 +184,25 @@ i32 accessCache(u64 addr){
 	 * else eviction lru cache
 	 */
 	mis_cnt++;
-	// need execute lru evict
-	if(ept == -1)
+	// ept dont equal to 1 means that have empty but dont find match cache
+	if(ept != -1)
 	{
-		cache_listp[set_idx][evict].lru = 1;
-		// cache_listp[set_idx][evict].inuse = true;
-		cache_listp[set_idx][evict].tag = tag;
-		evi_cnt++;
-		if(IsVer)
-		{
-			TODO("format");// TODO:
-			Ver("miss");
-		}
-		return MISS;
-	}
-	// put it in empty cache
-	else
-	{
+		assert(set_idx >= 0 && ept >= 0);
 		cache_listp[set_idx][ept].lru = 1;
 		cache_listp[set_idx][ept].inuse = true;
 		cache_listp[set_idx][ept].tag = tag;
-		if(IsVer)
-		{
-			TODO("format");// TODO:
-			Ver("evict");
-		}
+		return MISS;
+	}
+	// full and miss , need to execute evict
+	else
+	{
+		assert(set_idx >= 0 && evict >= 0);
+		cache_listp[set_idx][evict].lru = 1;
+		// cache_listp[set_idx][ept].inuse = true;
+		cache_listp[set_idx][evict].tag = tag;
+		evi_cnt++;
 		return EVICT;
 	}
-	
-
 }
 void initCache(){
 	cache_listp = (Cache **)malloc(sizeof(Cache *)*S);
@@ -194,13 +215,17 @@ void initCache(){
 		{
 			cache_listp[_][__].lru = 0;
 			cache_listp[_][__].tag = 0;
-			cache_listp[_][__].inuse = 0;
+			cache_listp[_][__].inuse = false;
 		}
 	}
 }
 void freeCache(){
-	for( i32 _ = 0; _ < E ; _++)
+	for( i32 _ = 0; _ < S ; _++)
+	{	
+		// printf("\033[31mDEBUG[+]:%d\n\033[0m",_);
+		// printf("\033[31mDEBUG[+]:%p\n\033[0m",cache_listp[_]);
 		free(cache_listp[_]);
+	}
 	free(cache_listp);
 }
 void parseArgs(i32 argc, char **argv){
@@ -216,7 +241,7 @@ void parseArgs(i32 argc, char **argv){
 				Usage(argv[0]);
 				exit(0);
 			case 'v':
-				verbose();// TODO: verbose
+				IsVer = 1;
 				break;
 			case 's':
 				s = atoi(optarg);
@@ -226,11 +251,11 @@ void parseArgs(i32 argc, char **argv){
 				E = atoi(optarg);
 				break;
 			case 'b':
-				tmp_i32 = atoi(optarg);
-				b = pow(2,tmp_i32);
+				b = atoi(optarg);
+				// B = pow(2,tmp_i32);
 				break;
 			case 't':
-				t();// TODO: trace file
+				tf = optarg;
 				break;
 			default:
 				Usage(argv[0]);
