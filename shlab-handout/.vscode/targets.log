@@ -1,0 +1,520 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Fri May 20 16:56:41 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
+# default
+.SHELLFLAGS := -c
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /home/squ/csapp/lab/shlab-handout
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /mnt/f/VScode/Microsoft VS Code/bin/code
+# makefile (from 'Makefile', line 12)
+CFLAGS = -Wall -g
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# 'override' directive
+GNUMAKEFLAGS := 
+# makefile (from 'Makefile', line 4)
+VERSION = 1
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+P9K_SSH = 0
+# environment
+VSCODE_CWD = /mnt/f/VScode/Microsoft VS Code
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/e/Web/xmapp/php:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/e/vmware/bin/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/100/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/100/DTS/Binn/:/mnt/c/Program Files/dotnet/:/mnt/f/LaTeX/texlive/2021/bin/win32:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/f/git/Git/cmd:/mnt/c/Program Files (x86)/Tencent/QQ/Bin:/mnt/f/GoLand/GoLand 2021.3.1/go/bin:/mnt/e/Xshell/:/mnt/e/xftp/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/e/Nodejs/:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Users/LENOVO/.cargo/bin:/mnt/f/Anaconda1:/mnt/f/Anaconda1/Library/mingw-w64/bin:/mnt/f/Anaconda1/Library/usr/bin:/mnt/f/Anaconda1/Library/bin:/mnt/f/Anaconda1/Scripts:/mnt/c/Users/LENOVO/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/LENOVO/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/LENOVO/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/LENOVO/.dotnet/tools:/mnt/f/VScode/Microsoft VS Code/bin:/mnt/f/dev cpp/Dev-Cpp/MinGW64/bin:/mnt/c/Users/LENOVO/go/bin:/mnt/e/PHPStorm/PhpStorm 2021.3.3/bin:/mnt/e/fiddler:/mnt/e/nmap:/mnt/c/Users/LENOVO/AppData/Roaming/npm
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# environment
+VSCODE_LOG_STACK = false
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-e8270ec9-e59a-4ed3-98e4-d2d9b1f7b2f9.sock
+# environment
+VSCODE_SERVER_TAR = /mnt/c/Users/LENOVO/AppData/Local/Temp/vscode-remote-wsl/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/vscode-server-stable-linux-x64.tar.gz
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /home/squ/csapp/lab/shlab-handout
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/8_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# environment
+WT_SESSION = bc437441-69b0-44f6-8758-da40ceaa7fba
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/squ
+# makefile (from 'Makefile', line 7)
+TSH = ./tsh
+# environment
+LOGNAME = squ
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+ZSH = /home/squ/.oh-my-zsh
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 1
+# makefile (from 'Makefile', line 10)
+CC = gcc
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = squ
+# makefile (from 'Makefile', line 5)
+HANDINDIR = /afs/cs/academic/class/15213-f02/L5/handin
+# makefile
+.DEFAULT_GOAL := all
+# environment
+NAME = Code
+# makefile (from 'Makefile', line 8)
+TSHREF = ./tshref
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/LENOVO/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.2
+# default
+MAKE_COMMAND := make
+# environment
+OLDPWD = /mnt/f/VScode/Microsoft VS Code
+# makefile (from 'Makefile', line 9)
+TSHARGS = "-p"
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# environment
+WT_PROFILE_ID = {2c4de342-38b7-51cf-b940-2309a097f518}
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 3)
+TEAM = NOBODY
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 6)
+DRIVER = ./sdriver.pl
+# environment
+HOSTTYPE = x86_64
+# environment
+P9K_TTY = old
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+_P9K_TTY = /dev/pts/0
+# environment
+VSCODE_EXTHOST_WILL_SEND_SOCKET = true
+# environment
+WSL_DISTRO_NAME = Ubuntu
+# makefile (from 'Makefile', line 13)
+FILES = $(TSH) ./myspin ./mysplit ./mystop ./myint
+# variable set hash-table stats:
+# Load=89/1024=9%, Rehash=0, Collisions=6/116=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2080, inode 21325): 38 files, no impossibilities.
+
+# 38 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+test15:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 58):
+	$(DRIVER) -t trace15.txt -s $(TSH) -a $(TSHARGS)
+
+handin:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 21):
+	cp tsh.c $(HANDINDIR)/$(TEAM)-$(VERSION)-tsh.c
+
+rtest14:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 90):
+	$(DRIVER) -t trace14.txt -s $(TSHREF) -a $(TSHARGS)
+
+all: tsh myspin mysplit mystop myint
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+test04:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 36):
+	$(DRIVER) -t trace04.txt -s $(TSH) -a $(TSHARGS)
+
+rtest06:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 74):
+	$(DRIVER) -t trace06.txt -s $(TSHREF) -a $(TSHARGS)
+
+rtest07:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 76):
+	$(DRIVER) -t trace07.txt -s $(TSHREF) -a $(TSHARGS)
+
+rtest08:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 78):
+	$(DRIVER) -t trace08.txt -s $(TSHREF) -a $(TSHARGS)
+
+rtest09:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 80):
+	$(DRIVER) -t trace09.txt -s $(TSHREF) -a $(TSHARGS)
+
+rtest01:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 64):
+ 
+	$(DRIVER) -t trace01.txt -s $(TSHREF) -a $(TSHARGS)
+
+test14:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 56):
+	$(DRIVER) -t trace14.txt -s $(TSH) -a $(TSHARGS)
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-20 16:55:51.9725457
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+mysplit:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 21:03:03.232563
+#  File has been updated.
+#  Successfully updated.
+
+rtest10:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 82):
+	$(DRIVER) -t trace10.txt -s $(TSHREF) -a $(TSHARGS)
+
+rtest16:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 94):
+	$(DRIVER) -t trace16.txt -s $(TSHREF) -a $(TSHARGS)
+
+rtest02:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 66):
+	$(DRIVER) -t trace02.txt -s $(TSHREF) -a $(TSHARGS)
+
+rtest11:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 84):
+	$(DRIVER) -t trace11.txt -s $(TSHREF) -a $(TSHARGS)
+
+test06:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 40):
+	$(DRIVER) -t trace06.txt -s $(TSH) -a $(TSHARGS)
+
+test07:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 42):
+	$(DRIVER) -t trace07.txt -s $(TSH) -a $(TSHARGS)
+
+test08:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 44):
+	$(DRIVER) -t trace08.txt -s $(TSH) -a $(TSHARGS)
+
+test09:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 46):
+	$(DRIVER) -t trace09.txt -s $(TSH) -a $(TSHARGS)
+
+rtest12:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 86):
+	$(DRIVER) -t trace12.txt -s $(TSHREF) -a $(TSHARGS)
+
+# Not a target:
+mystop:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 21:03:03.492563
+#  File has been updated.
+#  Successfully updated.
+
+test01:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 30):
+	$(DRIVER) -t trace01.txt -s $(TSH) -a $(TSHARGS)
+
+rtest03:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 68):
+	$(DRIVER) -t trace03.txt -s $(TSHREF) -a $(TSHARGS)
+
+test10:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 48):
+	$(DRIVER) -t trace10.txt -s $(TSH) -a $(TSHARGS)
+
+test16:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 60):
+	$(DRIVER) -t trace16.txt -s $(TSH) -a $(TSHARGS)
+
+test02:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(DRIVER) -t trace02.txt -s $(TSH) -a $(TSHARGS)
+
+test11:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 50):
+	$(DRIVER) -t trace11.txt -s $(TSH) -a $(TSHARGS)
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+rtest13:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 88):
+	$(DRIVER) -t trace13.txt -s $(TSHREF) -a $(TSHARGS)
+
+rtest05:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 72):
+	$(DRIVER) -t trace05.txt -s $(TSHREF) -a $(TSHARGS)
+
+# Not a target:
+myspin:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 21:03:02.992563
+#  File has been updated.
+#  Successfully updated.
+
+test12:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 52):
+	$(DRIVER) -t trace12.txt -s $(TSH) -a $(TSHARGS)
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 99):
+	rm -f $(FILES) *.o *~
+
+test03:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 34):
+	$(DRIVER) -t trace03.txt -s $(TSH) -a $(TSHARGS)
+
+# Not a target:
+tsh:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-20 16:55:58.7025457
+#  File has been updated.
+#  Successfully updated.
+
+rtest15:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 92):
+	$(DRIVER) -t trace15.txt -s $(TSHREF) -a $(TSHARGS)
+
+# Not a target:
+myint:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-19 21:03:03.732563
+#  File has been updated.
+#  Successfully updated.
+
+test13:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 54):
+	$(DRIVER) -t trace13.txt -s $(TSH) -a $(TSHARGS)
+
+test05:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	$(DRIVER) -t trace05.txt -s $(TSH) -a $(TSHARGS)
+
+rtest04:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(DRIVER) -t trace04.txt -s $(TSHREF) -a $(TSHARGS)
+
+# files hash-table stats:
+# Load=43/1024=4%, Rehash=0, Collisions=0/59=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 77 / storage = 684 B / avg = 8 B
+# current buf: size = 8162 B / used = 684 B / count = 77 / avg = 8 B
+
+# strcache performance: lookups = 122 / hit rate = 36%
+# hash-table stats:
+# Load=77/8192=1%, Rehash=0, Collisions=1/122=1%
+# Finished Make data base on Fri May 20 16:56:41 2022
+
+ 

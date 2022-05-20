@@ -1,0 +1,28 @@
+#
+# trace15.txt - Putting it all together
+#
+tsh> ./bogus
+./bogus: command not found
+tsh> ./myspin 10
+Job [0] (7463) terminated by signal 0
+tsh> ./myspin 3 &
+[1] (7481) ./myspin 3 &
+tsh> ./myspin 4 &
+[2] (7483) ./myspin 4 &
+tsh> jobs
+[1] (7481) Running ./myspin 3 &
+[2] (7483) Running ./myspin 4 &
+tsh> fg %1
+Job [1] (7481) stopped by signal 20
+tsh> jobs
+[1] (7481) Stopped ./myspin 3 &
+[2] (7483) Running ./myspin 4 &
+tsh> bg %3
+%3: No such job
+tsh> bg %1
+[1] (7481) ./myspin 3 &
+tsh> jobs
+[1] (7481) Running ./myspin 3 &
+[2] (7483) Running ./myspin 4 &
+tsh> fg %1
+tsh> quit

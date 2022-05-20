@@ -1,0 +1,42 @@
+5c5
+< ./bogus: command not found
+---
+> ./bogus: Command not found
+7c7
+< Job [0] (7463) terminated by signal 0
+---
+> Job [1] (7522) terminated by signal 2
+9c9
+< [1] (7481) ./myspin 3 &
+---
+> [1] (7524) ./myspin 3 &
+11c11
+< [2] (7483) ./myspin 4 &
+---
+> [2] (7526) ./myspin 4 &
+13,14c13,14
+< [1] (7481) Running ./myspin 3 &
+< [2] (7483) Running ./myspin 4 &
+---
+> [1] (7524) Running ./myspin 3 &
+> [2] (7526) Running ./myspin 4 &
+16c16
+< Job [1] (7481) stopped by signal 20
+---
+> Job [1] (7524) stopped by signal 20
+18,19c18,19
+< [1] (7481) Stopped ./myspin 3 &
+< [2] (7483) Running ./myspin 4 &
+---
+> [1] (7524) Stopped ./myspin 3 &
+> [2] (7526) Running ./myspin 4 &
+23c23
+< [1] (7481) ./myspin 3 &
+---
+> [1] (7524) ./myspin 3 &
+25,26c25,26
+< [1] (7481) Running ./myspin 3 &
+< [2] (7483) Running ./myspin 4 &
+---
+> [1] (7524) Running ./myspin 3 &
+> [2] (7526) Running ./myspin 4 &
